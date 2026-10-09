@@ -1,27 +1,32 @@
-# OPC-XML-Interface
-An OPC XML Interface for Matlab. Originally used to communicate with a Labfors bioreactor system.
+# OPC-XML-Interface for Labfors 5
+An OPC XML Interface for Matlab. Used to communicate with a Labfors 5 bioreactor system.
+this is a forked repository with some minor changes.
 
 Working OPCXML Actions:
-Read
-Write
-Browse
+- Read
+- Write
+- Browse
 
-At this point i dont know if i will include more Actions to the Class.
-
-Also i did not test it with other OPCXML devices though i think adaption is possible.
 
 The interface is designed as a Matlab Class. To use it copy the folder containing the class in your matlab path.
 
 Example Usage
 ```
->> opcdevice = OPCXMLDA
->> opcdevice.url = 'http://128.131.133.45:8080'
->> opcdevice.browse()
->> opcdevice.opclist.matlabstruct.with.opc.tags
->> opcdevice.read(opcdevice.opclist.opc.tag)
->> opcdevice.write('opc.tag',value)
+% Initialize OPC device
+opcdevice = OPCXMLDA(); 
+opcdevice.url = 'http://169.254.224.71:8080'; % Tower interface IP-address port 8080
+
+% Read current pH
+[ph, xml_unit] = opcdevice.read('A.parameters.pH.CurValue');
+
+% Set pH setpoint to 9 (has not been tested yet)
+opcdevice.write('A.parameters.pH.CurValue', 9); 
+
+% Browse tags (Not required)
+browse_result = opcdevice.browse();
+
+% No need for close since we just send HTTP requests and do not establish a persistent connection
 ```
 
-Tested on Matlab 2018.
-Tested on Matlab 2019a.
+Tested on Matlab 2026a.
 
