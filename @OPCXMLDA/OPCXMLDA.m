@@ -3,7 +3,7 @@ classdef OPCXMLDA < handle & matlab.System %& matlab.mixin.SetGet%
     %   Detailed explanation goes here
     
     properties
-        url = 'http://128.131.133.36:8080'
+        url = 'http://169.254.224.71:8080'
     end
     
     properties (SetAccess = private) % Read Only
@@ -11,7 +11,6 @@ classdef OPCXMLDA < handle & matlab.System %& matlab.mixin.SetGet%
         operationID
         opctags
         opctypes
-        urls = struct('Reactor_20','http://128.131.133.36:8080','Reactor_10','http://???','Reactor_2','http://128.131.133.45:8080')
         soapaction % is dynamically assigned by initialization
     end
     
@@ -29,7 +28,7 @@ classdef OPCXMLDA < handle & matlab.System %& matlab.mixin.SetGet%
     end
 
     methods
-        function obj = OPCXMLDA(obj) %Object initialization.
+        function obj = OPCXMLDA() %Object initialization.
             obj.operationID = obj.initOperationID();
             for i = 1:length(obj.operations)
                 obj.operation.(obj.operations(i)) = obj.operations(i);
@@ -134,7 +133,7 @@ classdef OPCXMLDA < handle & matlab.System %& matlab.mixin.SetGet%
                     end
                 elseif (elements.item(i-1).getAttributes.getNamedItem("HasChildren").getValue) == 'true'
                     value = string(elements.item(i-1).getAttributes.getNamedItem("ItemName").getValue);
-                    obj.browse(value)
+                    obj.browse(value);
                 end
             end
             r = obj.opctags;
@@ -212,11 +211,11 @@ classdef OPCXMLDA < handle & matlab.System %& matlab.mixin.SetGet%
                 error('operation is not valid')
             end
             %contentlengthField = matlab.net.http.field.ContentLengthField('');
-            hostField = matlab.net.http.field.HostField('128.131.133.36:8080');
+            %hostField = matlab.net.http.field.HostField('128.131.133.36:8080');
             connectionField = matlab.net.http.field.ConnectionField('close');
             useragentField = matlab.net.http.field.GenericField('User-Agent','Apache-HttpClient/4.1.1 (java 1.5)');
             %header = [acceptencodingField contentTypeField SOAPActionField contentlengthField hostField connectionField useragentField];
-            header = [acceptencodingField contentTypeField SOAPActionField hostField connectionField useragentField];
+            header = [acceptencodingField contentTypeField SOAPActionField connectionField useragentField];
             method = matlab.net.http.RequestMethod.POST;
             request = matlab.net.http.RequestMessage(method,header,body);
             response = request.send(uri);
