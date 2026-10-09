@@ -28,5 +28,11 @@ browse_result = opcdevice.browse();
 % No need for close since we just send HTTP requests and do not establish a persistent connection
 ```
 
+
+
+**TODO**
+- Add readBulk method
+- Add writeBulk method
+
 Tested on Matlab 2026a.
 
