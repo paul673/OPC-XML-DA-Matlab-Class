@@ -20,7 +20,7 @@ opcdevice.url = 'http://169.254.224.71:8080'; % Tower interface IP-address port 
 [ph, xml_unit] = opcdevice.read('A.parameters.pH.CurValue');
 
 % Set pH setpoint to 9 (has not been tested yet)
-opcdevice.write('A.parameters.pH.CurValue', 9); 
+opcdevice.write('A.parameters.pH.Setpoint', 9); 
 
 % Browse tags (Not required)
 browse_result = opcdevice.browse();
