@@ -83,7 +83,8 @@ classdef OPCXMLDA < handle & matlab.System %& matlab.mixin.SetGet%
             %valueNodes = response.getElementsByTagName('Value');
             itemNodes = response.getElementsByTagName('Items');
 
-            values = strings(length(opctags),1);
+            %values = strings(length(opctags),1);
+            values=  cell(length(opctags),1);
             value_types  = strings(length(opctags),1);
             if itemNodes.getLength ~= length(opctags)
                 warning("Response size doesn't macth request")
@@ -101,8 +102,9 @@ classdef OPCXMLDA < handle & matlab.System %& matlab.mixin.SetGet%
                     continue
                 end
 
-                values(idx) = string(item.getTextContent);
+                
                 value_types(idx) = string(item.getAttribute('xsi:type'));
+                values{idx} =OPCXMLDA.convertOPCValue(string(item.getTextContent),value_types(idx));
 
                 % Cache
                 fields = obj.getstructfieldsarray(opctags(idx));
@@ -178,8 +180,9 @@ classdef OPCXMLDA < handle & matlab.System %& matlab.mixin.SetGet%
             
             operation = obj.operation.Write;
             soapaction = obj.getsoapAction(operation);
-            soapaction = soapactionInjectItemlist(obj, soapaction, opctags);
-            soapaction = soapactionchangeValues(soapaction,xmlvalues,values_opctypes);
+            soapaction = obj.soapactionInjectItemlist(soapaction, opctags);
+
+            soapaction = obj.soapactionchangeValuesList(soapaction,xmlvalues,values_opctypes);
             
             response = obj.request(soapaction,operation);
             
@@ -395,7 +398,7 @@ classdef OPCXMLDA < handle & matlab.System %& matlab.mixin.SetGet%
             
         end
 
-        function r = soapactionchangeValuesList(dom,values,opctypes)
+        function r = soapactionchangeValuesList(obj, dom,values,opctypes)
             %% Create an item list with soapactionInjectItemlist first and then inject values using this function
             if numel(values)~=numel(opctypes)
                 error('wrong dimensions values must have same dim as opctypes')
@@ -442,6 +445,29 @@ classdef OPCXMLDA < handle & matlab.System %& matlab.mixin.SetGet%
             % Not yet sure if more conversion is necesary. For now lets
             % keep this silly function
             r = string(value);
+        end
+
+        function value = convertOPCValue(rawValue, opcType)
+
+            switch opcType
+                case "xsd:string"
+                    value = string(rawValue);
+
+                case "xsd:boolean"
+                    value = strcmpi(string(rawValue),"true");
+
+                case "xsd:double"
+                    value = str2double(rawValue);
+
+                case "xsd:int"
+                    value = int32(str2double(rawValue));
+
+                case "xsd:unsignedInt"
+                    value = uint32(str2double(rawValue));
+
+                otherwise
+                    error("Unsupported OPC type: %s",opcType)
+            end
         end
     end
     methods(Access = protected)
