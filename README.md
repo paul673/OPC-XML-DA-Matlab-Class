@@ -10,7 +10,7 @@ Working OPCXML Actions:
 The interface is designed as a Matlab Class. To use it copy the folder containing the class in your matlab path. The OPCXMLDA constructs the required XML file for each OPC action and sends the corresponding HTTP request. The `read` and `write` method are only able to embedd a signle tag into the request. Reading or writing multible values at a time does therefore require to send multible requests. The `readBulk` and `writeBulk` were introduced to read and write to multible tags at once. 
 
 
-Example Usage
+**Example usage:**
 ```
 % Initialize OPC device
 opcdevice = OPCXMLDA(); 
@@ -30,9 +30,6 @@ browse_result = opcdevice.browse();
 
 % Write to multible tags at once
 opcdevice.writeBulk(["A.parameters.Temp.Setpoint" "A.parameters.pH.Setpoint"], [15,7])
-
-
-
 
 % No need for close since we just send HTTP requests and do not establish a persistent connection
 ```
