@@ -1,0 +1,666 @@
+
+[18-Nov-2026 10:26:27] Read
+REQUEST:
+<?xml version="1.0" encoding="utf-8"?>
+<soapenv:Envelope xmlns:ns="http://opcfoundation.org/webservices/XMLDA/1.0/"
+                  xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <Read xmlns="http://opcfoundation.org/webservices/XMLDA/1.0/">
+        <Options ClientRequestHandle="XYZ" LocaleID="" ReturnDiagnosticInfo="true"
+                  ReturnErrorText="true"
+                  ReturnItemName="true"
+                  ReturnItemPath="true"
+                  ReturnItemTime="true"/>
+         <ItemList MaxAge="0">
+            <Items ClientItemHandle="1" ItemName="A.parameters.pH.Setpoint" MaxAge="0"/>
+            <Items ClientItemHandle="2" ItemName="A.parameters.Temp.Setpoint" MaxAge="0"/>
+            <Items ClientItemHandle="3" ItemName="A.parameters.Stirrer.Setpoint" MaxAge="0"/>
+            <Items ClientItemHandle="4" ItemName="A.parameters.Stirrer.Name" MaxAge="0"/>
+            <Items ClientItemHandle="5" ItemName="A.parameters.Stirrer.FilterWindow" MaxAge="0"/>
+            <Items ClientItemHandle="6" ItemName="bah" MaxAge="0"/>
+            <Items ClientItemHandle="7" ItemName="A.parameters.Stirrer.Measured" MaxAge="0"/>
+         </ItemList>
+      </Read>
+   </soapenv:Body>
+</soapenv:Envelope>
+RESPONSE:
+<?xml version="1.0" encoding="utf-8"?>
+<n1:Envelope xmlns:n1="http://schemas.xmlsoap.org/soap/envelope/">
+   <n1:Header/>
+   <n1:Body>
+      <n2:ReadResponse xmlns="http://opcfoundation.org/webservices/XMLDA/1.0/"
+                       xmlns:n2="http://opcfoundation.org/webservices/XMLDA/1.0/"
+                       xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+         <ReadResult ClientRequestHandle="XYZ" RcvTime="2026-11-18T09:37:34.299631365Z"
+                     ReplyTime="2026-11-18T09:37:34.300667319Z"
+                     RevisedLocaleID="en-us"
+                     ServerState="running"/>
+         <RItemList>
+            <Items ClientItemHandle="1" ItemName="A.parameters.pH.Setpoint" ItemPath=""
+                   Timestamp="2026-11-16T14:34:36.21709815Z">
+               <Value xsi:type="xsd:double">7</Value>
+               <Quality LimitField="none" QualityField="good" VendorField="0"/>
+            </Items>
+            <Items ClientItemHandle="2" ItemName="A.parameters.Temp.Setpoint" ItemPath=""
+                   Timestamp="2026-11-16T14:59:34.717554214Z">
+               <Value xsi:type="xsd:double">30</Value>
+               <Quality LimitField="none" QualityField="good" VendorField="0"/>
+            </Items>
+            <Items ClientItemHandle="3" ItemName="A.parameters.Stirrer.Setpoint" ItemPath=""
+                   Timestamp="2026-11-18T09:37:19.815395569Z">
+               <Value xsi:type="xsd:double">100</Value>
+               <Quality LimitField="none" QualityField="good" VendorField="0"/>
+            </Items>
+            <Items ClientItemHandle="4" ItemName="A.parameters.Stirrer.Name" ItemPath=""
+                   Timestamp="1970-01-01T00:00:00Z">
+               <Value xsi:type="xsd:string">Stirrer</Value>
+               <Quality LimitField="none" QualityField="good" VendorField="0"/>
+            </Items>
+            <Items ClientItemHandle="5" ItemName="A.parameters.Stirrer.FilterWindow" ItemPath=""
+                   Timestamp="2026-11-16T14:34:36.197157442Z">
+               <Value xsi:type="xsd:unsignedInt">8</Value>
+               <Quality LimitField="none" QualityField="good" VendorField="0"/>
+            </Items>
+            <Items ClientItemHandle="6" ItemName="bah" ItemPath="" ResultID="E_UNKNOWNITEMNAME"/>
+            <Items ClientItemHandle="7" ItemName="A.parameters.Stirrer.Measured" ItemPath=""
+                   Timestamp="2026-11-16T14:34:36.195635005Z">
+               <Value xsi:type="xsd:boolean">true</Value>
+               <Quality LimitField="none" QualityField="good" VendorField="0"/>
+            </Items>
+         </RItemList>
+         <Errors ID="E_UNKNOWNITEMNAME">
+            <Text>The item name is no longer available in the server address space.</Text>
+         </Errors>
+      </n2:ReadResponse>
+   </n1:Body>
+</n1:Envelope>
+
+[18-Nov-2026 10:26:27] Read
+REQUEST:
+<?xml version="1.0" encoding="utf-8"?>
+<soapenv:Envelope xmlns:ns="http://opcfoundation.org/webservices/XMLDA/1.0/"
+                  xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <Read xmlns="http://opcfoundation.org/webservices/XMLDA/1.0/">
+        <Options ClientRequestHandle="XYZ" LocaleID="" ReturnDiagnosticInfo="true"
+                  ReturnErrorText="true"
+                  ReturnItemName="true"
+                  ReturnItemPath="true"
+                  ReturnItemTime="true"/>
+         <ItemList MaxAge="0">
+            <Items ClientItemHandle="1" ItemName="A.parameters.Stirrer.CurValue" MaxAge="0"/>
+            <Items ClientItemHandle="2" ItemName="A.parameters.Stirrer.Setpoint" MaxAge="0"/>
+         </ItemList>
+      </Read>
+   </soapenv:Body>
+</soapenv:Envelope>
+RESPONSE:
+<?xml version="1.0" encoding="utf-8"?>
+<n1:Envelope xmlns:n1="http://schemas.xmlsoap.org/soap/envelope/">
+   <n1:Header/>
+   <n1:Body>
+      <n2:ReadResponse xmlns="http://opcfoundation.org/webservices/XMLDA/1.0/"
+                       xmlns:n2="http://opcfoundation.org/webservices/XMLDA/1.0/"
+                       xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+         <ReadResult ClientRequestHandle="XYZ" RcvTime="2026-11-18T09:37:34.616970324Z"
+                     ReplyTime="2026-11-18T09:37:34.617359747Z"
+                     RevisedLocaleID="en-us"
+                     ServerState="running"/>
+         <RItemList>
+            <Items ClientItemHandle="1" ItemName="A.parameters.Stirrer.CurValue" ItemPath=""
+                   Timestamp="2026-11-18T09:37:34.162710727Z">
+               <Value xsi:type="xsd:double">79.59844207763671875</Value>
+               <Quality LimitField="none" QualityField="good" VendorField="0"/>
+            </Items>
+            <Items ClientItemHandle="2" ItemName="A.parameters.Stirrer.Setpoint" ItemPath=""
+                   Timestamp="2026-11-18T09:37:19.815395569Z">
+               <Value xsi:type="xsd:double">100</Value>
+               <Quality LimitField="none" QualityField="good" VendorField="0"/>
+            </Items>
+         </RItemList>
+      </n2:ReadResponse>
+   </n1:Body>
+</n1:Envelope>
+
+[18-Nov-2026 10:26:37] Read
+REQUEST:
+<?xml version="1.0" encoding="utf-8"?>
+<soapenv:Envelope xmlns:ns="http://opcfoundation.org/webservices/XMLDA/1.0/"
+                  xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <Read xmlns="http://opcfoundation.org/webservices/XMLDA/1.0/">
+        <Options ClientRequestHandle="XYZ" LocaleID="" ReturnDiagnosticInfo="true"
+                  ReturnErrorText="true"
+                  ReturnItemName="true"
+                  ReturnItemPath="true"
+                  ReturnItemTime="true"/>
+         <ItemList MaxAge="0">
+            <Items ClientItemHandle="1" ItemName="A.parameters.Stirrer.CurValue" MaxAge="0"/>
+            <Items ClientItemHandle="2" ItemName="A.parameters.Stirrer.Setpoint" MaxAge="0"/>
+         </ItemList>
+      </Read>
+   </soapenv:Body>
+</soapenv:Envelope>
+RESPONSE:
+<?xml version="1.0" encoding="utf-8"?>
+<n1:Envelope xmlns:n1="http://schemas.xmlsoap.org/soap/envelope/">
+   <n1:Header/>
+   <n1:Body>
+      <n2:ReadResponse xmlns="http://opcfoundation.org/webservices/XMLDA/1.0/"
+                       xmlns:n2="http://opcfoundation.org/webservices/XMLDA/1.0/"
+                       xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+         <ReadResult ClientRequestHandle="XYZ" RcvTime="2026-11-18T09:37:44.927000817Z"
+                     ReplyTime="2026-11-18T09:37:44.928159869Z"
+                     RevisedLocaleID="en-us"
+                     ServerState="running"/>
+         <RItemList>
+            <Items ClientItemHandle="1" ItemName="A.parameters.Stirrer.CurValue" ItemPath=""
+                   Timestamp="2026-11-18T09:37:44.33009392Z">
+               <Value xsi:type="xsd:double">80.887481689453125</Value>
+               <Quality LimitField="none" QualityField="good" VendorField="0"/>
+            </Items>
+            <Items ClientItemHandle="2" ItemName="A.parameters.Stirrer.Setpoint" ItemPath=""
+                   Timestamp="2026-11-18T09:37:19.815395569Z">
+               <Value xsi:type="xsd:double">100</Value>
+               <Quality LimitField="none" QualityField="good" VendorField="0"/>
+            </Items>
+         </RItemList>
+      </n2:ReadResponse>
+   </n1:Body>
+</n1:Envelope>
+
+[18-Nov-2026 10:26:48] Read
+REQUEST:
+<?xml version="1.0" encoding="utf-8"?>
+<soapenv:Envelope xmlns:ns="http://opcfoundation.org/webservices/XMLDA/1.0/"
+                  xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <Read xmlns="http://opcfoundation.org/webservices/XMLDA/1.0/">
+        <Options ClientRequestHandle="XYZ" LocaleID="" ReturnDiagnosticInfo="true"
+                  ReturnErrorText="true"
+                  ReturnItemName="true"
+                  ReturnItemPath="true"
+                  ReturnItemTime="true"/>
+         <ItemList MaxAge="0">
+            <Items ClientItemHandle="1" ItemName="A.parameters.Stirrer.CurValue" MaxAge="0"/>
+            <Items ClientItemHandle="2" ItemName="A.parameters.Stirrer.Setpoint" MaxAge="0"/>
+         </ItemList>
+      </Read>
+   </soapenv:Body>
+</soapenv:Envelope>
+RESPONSE:
+<?xml version="1.0" encoding="utf-8"?>
+<n1:Envelope xmlns:n1="http://schemas.xmlsoap.org/soap/envelope/">
+   <n1:Header/>
+   <n1:Body>
+      <n2:ReadResponse xmlns="http://opcfoundation.org/webservices/XMLDA/1.0/"
+                       xmlns:n2="http://opcfoundation.org/webservices/XMLDA/1.0/"
+                       xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+         <ReadResult ClientRequestHandle="XYZ" RcvTime="2026-11-18T09:37:55.100418536Z"
+                     ReplyTime="2026-11-18T09:37:55.101204731Z"
+                     RevisedLocaleID="en-us"
+                     ServerState="running"/>
+         <RItemList>
+            <Items ClientItemHandle="1" ItemName="A.parameters.Stirrer.CurValue" ItemPath=""
+                   Timestamp="2026-11-18T09:37:53.917947707Z">
+               <Value xsi:type="xsd:double">91.26804351806640625</Value>
+               <Quality LimitField="none" QualityField="good" VendorField="0"/>
+            </Items>
+            <Items ClientItemHandle="2" ItemName="A.parameters.Stirrer.Setpoint" ItemPath=""
+                   Timestamp="2026-11-18T09:37:19.815395569Z">
+               <Value xsi:type="xsd:double">100</Value>
+               <Quality LimitField="none" QualityField="good" VendorField="0"/>
+            </Items>
+         </RItemList>
+      </n2:ReadResponse>
+   </n1:Body>
+</n1:Envelope>
+
+[18-Nov-2026 10:26:58] Read
+REQUEST:
+<?xml version="1.0" encoding="utf-8"?>
+<soapenv:Envelope xmlns:ns="http://opcfoundation.org/webservices/XMLDA/1.0/"
+                  xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <Read xmlns="http://opcfoundation.org/webservices/XMLDA/1.0/">
+        <Options ClientRequestHandle="XYZ" LocaleID="" ReturnDiagnosticInfo="true"
+                  ReturnErrorText="true"
+                  ReturnItemName="true"
+                  ReturnItemPath="true"
+                  ReturnItemTime="true"/>
+         <ItemList MaxAge="0">
+            <Items ClientItemHandle="1" ItemName="A.parameters.Stirrer.CurValue" MaxAge="0"/>
+            <Items ClientItemHandle="2" ItemName="A.parameters.Stirrer.Setpoint" MaxAge="0"/>
+         </ItemList>
+      </Read>
+   </soapenv:Body>
+</soapenv:Envelope>
+RESPONSE:
+<?xml version="1.0" encoding="utf-8"?>
+<n1:Envelope xmlns:n1="http://schemas.xmlsoap.org/soap/envelope/">
+   <n1:Header/>
+   <n1:Body>
+      <n2:ReadResponse xmlns="http://opcfoundation.org/webservices/XMLDA/1.0/"
+                       xmlns:n2="http://opcfoundation.org/webservices/XMLDA/1.0/"
+                       xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+         <ReadResult ClientRequestHandle="XYZ" RcvTime="2026-11-18T09:38:05.285529209Z"
+                     ReplyTime="2026-11-18T09:38:05.286127948Z"
+                     RevisedLocaleID="en-us"
+                     ServerState="running"/>
+         <RItemList>
+            <Items ClientItemHandle="1" ItemName="A.parameters.Stirrer.CurValue" ItemPath=""
+                   Timestamp="2026-11-18T09:38:04.878384714Z">
+               <Value xsi:type="xsd:double">95.70342254638671875</Value>
+               <Quality LimitField="none" QualityField="good" VendorField="0"/>
+            </Items>
+            <Items ClientItemHandle="2" ItemName="A.parameters.Stirrer.Setpoint" ItemPath=""
+                   Timestamp="2026-11-18T09:37:19.815395569Z">
+               <Value xsi:type="xsd:double">100</Value>
+               <Quality LimitField="none" QualityField="good" VendorField="0"/>
+            </Items>
+         </RItemList>
+      </n2:ReadResponse>
+   </n1:Body>
+</n1:Envelope>
+
+[18-Nov-2026 10:27:08] Read
+REQUEST:
+<?xml version="1.0" encoding="utf-8"?>
+<soapenv:Envelope xmlns:ns="http://opcfoundation.org/webservices/XMLDA/1.0/"
+                  xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <Read xmlns="http://opcfoundation.org/webservices/XMLDA/1.0/">
+        <Options ClientRequestHandle="XYZ" LocaleID="" ReturnDiagnosticInfo="true"
+                  ReturnErrorText="true"
+                  ReturnItemName="true"
+                  ReturnItemPath="true"
+                  ReturnItemTime="true"/>
+         <ItemList MaxAge="0">
+            <Items ClientItemHandle="1" ItemName="A.parameters.Stirrer.CurValue" MaxAge="0"/>
+            <Items ClientItemHandle="2" ItemName="A.parameters.Stirrer.Setpoint" MaxAge="0"/>
+         </ItemList>
+      </Read>
+   </soapenv:Body>
+</soapenv:Envelope>
+RESPONSE:
+<?xml version="1.0" encoding="utf-8"?>
+<n1:Envelope xmlns:n1="http://schemas.xmlsoap.org/soap/envelope/">
+   <n1:Header/>
+   <n1:Body>
+      <n2:ReadResponse xmlns="http://opcfoundation.org/webservices/XMLDA/1.0/"
+                       xmlns:n2="http://opcfoundation.org/webservices/XMLDA/1.0/"
+                       xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+         <ReadResult ClientRequestHandle="XYZ" RcvTime="2026-11-18T09:38:15.446626627Z"
+                     ReplyTime="2026-11-18T09:38:15.447021357Z"
+                     RevisedLocaleID="en-us"
+                     ServerState="running"/>
+         <RItemList>
+            <Items ClientItemHandle="1" ItemName="A.parameters.Stirrer.CurValue" ItemPath=""
+                   Timestamp="2026-11-18T09:38:14.259915078Z">
+               <Value xsi:type="xsd:double">97.08282470703125</Value>
+               <Quality LimitField="none" QualityField="good" VendorField="0"/>
+            </Items>
+            <Items ClientItemHandle="2" ItemName="A.parameters.Stirrer.Setpoint" ItemPath=""
+                   Timestamp="2026-11-18T09:37:19.815395569Z">
+               <Value xsi:type="xsd:double">100</Value>
+               <Quality LimitField="none" QualityField="good" VendorField="0"/>
+            </Items>
+         </RItemList>
+      </n2:ReadResponse>
+   </n1:Body>
+</n1:Envelope>
+
+[18-Nov-2026 10:27:18] Read
+REQUEST:
+<?xml version="1.0" encoding="utf-8"?>
+<soapenv:Envelope xmlns:ns="http://opcfoundation.org/webservices/XMLDA/1.0/"
+                  xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <Read xmlns="http://opcfoundation.org/webservices/XMLDA/1.0/">
+        <Options ClientRequestHandle="XYZ" LocaleID="" ReturnDiagnosticInfo="true"
+                  ReturnErrorText="true"
+                  ReturnItemName="true"
+                  ReturnItemPath="true"
+                  ReturnItemTime="true"/>
+         <ItemList MaxAge="0">
+            <Items ClientItemHandle="1" ItemName="A.parameters.Stirrer.CurValue" MaxAge="0"/>
+            <Items ClientItemHandle="2" ItemName="A.parameters.Stirrer.Setpoint" MaxAge="0"/>
+         </ItemList>
+      </Read>
+   </soapenv:Body>
+</soapenv:Envelope>
+RESPONSE:
+<?xml version="1.0" encoding="utf-8"?>
+<n1:Envelope xmlns:n1="http://schemas.xmlsoap.org/soap/envelope/">
+   <n1:Header/>
+   <n1:Body>
+      <n2:ReadResponse xmlns="http://opcfoundation.org/webservices/XMLDA/1.0/"
+                       xmlns:n2="http://opcfoundation.org/webservices/XMLDA/1.0/"
+                       xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+         <ReadResult ClientRequestHandle="XYZ" RcvTime="2026-11-18T09:38:25.631466831Z"
+                     ReplyTime="2026-11-18T09:38:25.63197233Z"
+                     RevisedLocaleID="en-us"
+                     ServerState="running"/>
+         <RItemList>
+            <Items ClientItemHandle="1" ItemName="A.parameters.Stirrer.CurValue" ItemPath=""
+                   Timestamp="2026-11-18T09:38:25.347996792Z">
+               <Value xsi:type="xsd:double">99.33281707763671875</Value>
+               <Quality LimitField="none" QualityField="good" VendorField="0"/>
+            </Items>
+            <Items ClientItemHandle="2" ItemName="A.parameters.Stirrer.Setpoint" ItemPath=""
+                   Timestamp="2026-11-18T09:37:19.815395569Z">
+               <Value xsi:type="xsd:double">100</Value>
+               <Quality LimitField="none" QualityField="good" VendorField="0"/>
+            </Items>
+         </RItemList>
+      </n2:ReadResponse>
+   </n1:Body>
+</n1:Envelope>
+
+[18-Nov-2026 10:27:28] Read
+REQUEST:
+<?xml version="1.0" encoding="utf-8"?>
+<soapenv:Envelope xmlns:ns="http://opcfoundation.org/webservices/XMLDA/1.0/"
+                  xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <Read xmlns="http://opcfoundation.org/webservices/XMLDA/1.0/">
+        <Options ClientRequestHandle="XYZ" LocaleID="" ReturnDiagnosticInfo="true"
+                  ReturnErrorText="true"
+                  ReturnItemName="true"
+                  ReturnItemPath="true"
+                  ReturnItemTime="true"/>
+         <ItemList MaxAge="0">
+            <Items ClientItemHandle="1" ItemName="A.parameters.Stirrer.CurValue" MaxAge="0"/>
+            <Items ClientItemHandle="2" ItemName="A.parameters.Stirrer.Setpoint" MaxAge="0"/>
+         </ItemList>
+      </Read>
+   </soapenv:Body>
+</soapenv:Envelope>
+RESPONSE:
+<?xml version="1.0" encoding="utf-8"?>
+<n1:Envelope xmlns:n1="http://schemas.xmlsoap.org/soap/envelope/">
+   <n1:Header/>
+   <n1:Body>
+      <n2:ReadResponse xmlns="http://opcfoundation.org/webservices/XMLDA/1.0/"
+                       xmlns:n2="http://opcfoundation.org/webservices/XMLDA/1.0/"
+                       xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+         <ReadResult ClientRequestHandle="XYZ" RcvTime="2026-11-18T09:38:35.796545367Z"
+                     ReplyTime="2026-11-18T09:38:35.798184502Z"
+                     RevisedLocaleID="en-us"
+                     ServerState="running"/>
+         <RItemList>
+            <Items ClientItemHandle="1" ItemName="A.parameters.Stirrer.CurValue" ItemPath=""
+                   Timestamp="2026-11-18T09:38:34.353966204Z">
+               <Value xsi:type="xsd:double">99.55327606201171875</Value>
+               <Quality LimitField="none" QualityField="good" VendorField="0"/>
+            </Items>
+            <Items ClientItemHandle="2" ItemName="A.parameters.Stirrer.Setpoint" ItemPath=""
+                   Timestamp="2026-11-18T09:37:19.815395569Z">
+               <Value xsi:type="xsd:double">100</Value>
+               <Quality LimitField="none" QualityField="good" VendorField="0"/>
+            </Items>
+         </RItemList>
+      </n2:ReadResponse>
+   </n1:Body>
+</n1:Envelope>
+
+[18-Nov-2026 10:27:38] Read
+REQUEST:
+<?xml version="1.0" encoding="utf-8"?>
+<soapenv:Envelope xmlns:ns="http://opcfoundation.org/webservices/XMLDA/1.0/"
+                  xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <Read xmlns="http://opcfoundation.org/webservices/XMLDA/1.0/">
+        <Options ClientRequestHandle="XYZ" LocaleID="" ReturnDiagnosticInfo="true"
+                  ReturnErrorText="true"
+                  ReturnItemName="true"
+                  ReturnItemPath="true"
+                  ReturnItemTime="true"/>
+         <ItemList MaxAge="0">
+            <Items ClientItemHandle="1" ItemName="A.parameters.Stirrer.CurValue" MaxAge="0"/>
+            <Items ClientItemHandle="2" ItemName="A.parameters.Stirrer.Setpoint" MaxAge="0"/>
+         </ItemList>
+      </Read>
+   </soapenv:Body>
+</soapenv:Envelope>
+RESPONSE:
+<?xml version="1.0" encoding="utf-8"?>
+<n1:Envelope xmlns:n1="http://schemas.xmlsoap.org/soap/envelope/">
+   <n1:Header/>
+   <n1:Body>
+      <n2:ReadResponse xmlns="http://opcfoundation.org/webservices/XMLDA/1.0/"
+                       xmlns:n2="http://opcfoundation.org/webservices/XMLDA/1.0/"
+                       xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+         <ReadResult ClientRequestHandle="XYZ" RcvTime="2026-11-18T09:38:45.960088452Z"
+                     ReplyTime="2026-11-18T09:38:45.960475547Z"
+                     RevisedLocaleID="en-us"
+                     ServerState="running"/>
+         <RItemList>
+            <Items ClientItemHandle="1" ItemName="A.parameters.Stirrer.CurValue" ItemPath=""
+                   Timestamp="2026-11-18T09:38:45.300350762Z">
+               <Value xsi:type="xsd:double">99.4208831787109375</Value>
+               <Quality LimitField="none" QualityField="good" VendorField="0"/>
+            </Items>
+            <Items ClientItemHandle="2" ItemName="A.parameters.Stirrer.Setpoint" ItemPath=""
+                   Timestamp="2026-11-18T09:37:19.815395569Z">
+               <Value xsi:type="xsd:double">100</Value>
+               <Quality LimitField="none" QualityField="good" VendorField="0"/>
+            </Items>
+         </RItemList>
+      </n2:ReadResponse>
+   </n1:Body>
+</n1:Envelope>
+
+[18-Nov-2026 10:27:49] Read
+REQUEST:
+<?xml version="1.0" encoding="utf-8"?>
+<soapenv:Envelope xmlns:ns="http://opcfoundation.org/webservices/XMLDA/1.0/"
+                  xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <Read xmlns="http://opcfoundation.org/webservices/XMLDA/1.0/">
+        <Options ClientRequestHandle="XYZ" LocaleID="" ReturnDiagnosticInfo="true"
+                  ReturnErrorText="true"
+                  ReturnItemName="true"
+                  ReturnItemPath="true"
+                  ReturnItemTime="true"/>
+         <ItemList MaxAge="0">
+            <Items ClientItemHandle="1" ItemName="A.parameters.Stirrer.CurValue" MaxAge="0"/>
+            <Items ClientItemHandle="2" ItemName="A.parameters.Stirrer.Setpoint" MaxAge="0"/>
+         </ItemList>
+      </Read>
+   </soapenv:Body>
+</soapenv:Envelope>
+RESPONSE:
+<?xml version="1.0" encoding="utf-8"?>
+<n1:Envelope xmlns:n1="http://schemas.xmlsoap.org/soap/envelope/">
+   <n1:Header/>
+   <n1:Body>
+      <n2:ReadResponse xmlns="http://opcfoundation.org/webservices/XMLDA/1.0/"
+                       xmlns:n2="http://opcfoundation.org/webservices/XMLDA/1.0/"
+                       xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+         <ReadResult ClientRequestHandle="XYZ" RcvTime="2026-11-18T09:38:56.130321681Z"
+                     ReplyTime="2026-11-18T09:38:56.130756255Z"
+                     RevisedLocaleID="en-us"
+                     ServerState="running"/>
+         <RItemList>
+            <Items ClientItemHandle="1" ItemName="A.parameters.Stirrer.CurValue" ItemPath=""
+                   Timestamp="2026-11-18T09:38:54.652277668Z">
+               <Value xsi:type="xsd:double">99.73337554931640625</Value>
+               <Quality LimitField="none" QualityField="good" VendorField="0"/>
+            </Items>
+            <Items ClientItemHandle="2" ItemName="A.parameters.Stirrer.Setpoint" ItemPath=""
+                   Timestamp="2026-11-18T09:37:19.815395569Z">
+               <Value xsi:type="xsd:double">100</Value>
+               <Quality LimitField="none" QualityField="good" VendorField="0"/>
+            </Items>
+         </RItemList>
+      </n2:ReadResponse>
+   </n1:Body>
+</n1:Envelope>
+
+[18-Nov-2026 10:27:59] Read
+REQUEST:
+<?xml version="1.0" encoding="utf-8"?>
+<soapenv:Envelope xmlns:ns="http://opcfoundation.org/webservices/XMLDA/1.0/"
+                  xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <Read xmlns="http://opcfoundation.org/webservices/XMLDA/1.0/">
+        <Options ClientRequestHandle="XYZ" LocaleID="" ReturnDiagnosticInfo="true"
+                  ReturnErrorText="true"
+                  ReturnItemName="true"
+                  ReturnItemPath="true"
+                  ReturnItemTime="true"/>
+         <ItemList MaxAge="0">
+            <Items ClientItemHandle="1" ItemName="A.parameters.Stirrer.CurValue" MaxAge="0"/>
+            <Items ClientItemHandle="2" ItemName="A.parameters.Stirrer.Setpoint" MaxAge="0"/>
+         </ItemList>
+      </Read>
+   </soapenv:Body>
+</soapenv:Envelope>
+RESPONSE:
+<?xml version="1.0" encoding="utf-8"?>
+<n1:Envelope xmlns:n1="http://schemas.xmlsoap.org/soap/envelope/">
+   <n1:Header/>
+   <n1:Body>
+      <n2:ReadResponse xmlns="http://opcfoundation.org/webservices/XMLDA/1.0/"
+                       xmlns:n2="http://opcfoundation.org/webservices/XMLDA/1.0/"
+                       xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+         <ReadResult ClientRequestHandle="XYZ" RcvTime="2026-11-18T09:39:06.305849208Z"
+                     ReplyTime="2026-11-18T09:39:06.306249016Z"
+                     RevisedLocaleID="en-us"
+                     ServerState="running"/>
+         <RItemList>
+            <Items ClientItemHandle="1" ItemName="A.parameters.Stirrer.CurValue" ItemPath=""
+                   Timestamp="2026-11-18T09:39:05.641150678Z">
+               <Value xsi:type="xsd:double">99.58878326416015625</Value>
+               <Quality LimitField="none" QualityField="good" VendorField="0"/>
+            </Items>
+            <Items ClientItemHandle="2" ItemName="A.parameters.Stirrer.Setpoint" ItemPath=""
+                   Timestamp="2026-11-18T09:37:19.815395569Z">
+               <Value xsi:type="xsd:double">100</Value>
+               <Quality LimitField="none" QualityField="good" VendorField="0"/>
+            </Items>
+         </RItemList>
+      </n2:ReadResponse>
+   </n1:Body>
+</n1:Envelope>
+
+[18-Nov-2026 10:28:09] Read
+REQUEST:
+<?xml version="1.0" encoding="utf-8"?>
+<soapenv:Envelope xmlns:ns="http://opcfoundation.org/webservices/XMLDA/1.0/"
+                  xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <Read xmlns="http://opcfoundation.org/webservices/XMLDA/1.0/">
+        <Options ClientRequestHandle="XYZ" LocaleID="" ReturnDiagnosticInfo="true"
+                  ReturnErrorText="true"
+                  ReturnItemName="true"
+                  ReturnItemPath="true"
+                  ReturnItemTime="true"/>
+         <ItemList MaxAge="0">
+            <Items ClientItemHandle="1" ItemName="A.parameters.Stirrer.CurValue" MaxAge="0"/>
+            <Items ClientItemHandle="2" ItemName="A.parameters.Stirrer.Setpoint" MaxAge="0"/>
+         </ItemList>
+      </Read>
+   </soapenv:Body>
+</soapenv:Envelope>
+RESPONSE:
+<?xml version="1.0" encoding="utf-8"?>
+<n1:Envelope xmlns:n1="http://schemas.xmlsoap.org/soap/envelope/">
+   <n1:Header/>
+   <n1:Body>
+      <n2:ReadResponse xmlns="http://opcfoundation.org/webservices/XMLDA/1.0/"
+                       xmlns:n2="http://opcfoundation.org/webservices/XMLDA/1.0/"
+                       xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+         <ReadResult ClientRequestHandle="XYZ" RcvTime="2026-11-18T09:39:16.719984721Z"
+                     ReplyTime="2026-11-18T09:39:16.720401587Z"
+                     RevisedLocaleID="en-us"
+                     ServerState="running"/>
+         <RItemList>
+            <Items ClientItemHandle="1" ItemName="A.parameters.Stirrer.CurValue" ItemPath=""
+                   Timestamp="2026-11-18T09:39:16.700200687Z">
+               <Value xsi:type="xsd:double">99.79494476318359375</Value>
+               <Quality LimitField="none" QualityField="good" VendorField="0"/>
+            </Items>
+            <Items ClientItemHandle="2" ItemName="A.parameters.Stirrer.Setpoint" ItemPath=""
+                   Timestamp="2026-11-18T09:37:19.815395569Z">
+               <Value xsi:type="xsd:double">100</Value>
+               <Quality LimitField="none" QualityField="good" VendorField="0"/>
+            </Items>
+         </RItemList>
+      </n2:ReadResponse>
+   </n1:Body>
+</n1:Envelope>
+
+[18-Nov-2026 10:28:19] Read
+REQUEST:
+<?xml version="1.0" encoding="utf-8"?>
+<soapenv:Envelope xmlns:ns="http://opcfoundation.org/webservices/XMLDA/1.0/"
+                  xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <Read xmlns="http://opcfoundation.org/webservices/XMLDA/1.0/">
+        <Options ClientRequestHandle="XYZ" LocaleID="" ReturnDiagnosticInfo="true"
+                  ReturnErrorText="true"
+                  ReturnItemName="true"
+                  ReturnItemPath="true"
+                  ReturnItemTime="true"/>
+         <ItemList MaxAge="0">
+            <Items ClientItemHandle="1" ItemName="A.parameters.Stirrer.CurValue" MaxAge="0"/>
+            <Items ClientItemHandle="2" ItemName="A.parameters.Stirrer.Setpoint" MaxAge="0"/>
+         </ItemList>
+      </Read>
+   </soapenv:Body>
+</soapenv:Envelope>
+RESPONSE:
+<?xml version="1.0" encoding="utf-8"?>
+<n1:Envelope xmlns:n1="http://schemas.xmlsoap.org/soap/envelope/">
+   <n1:Header/>
+   <n1:Body>
+      <n2:ReadResponse xmlns="http://opcfoundation.org/webservices/XMLDA/1.0/"
+                       xmlns:n2="http://opcfoundation.org/webservices/XMLDA/1.0/"
+                       xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+         <ReadResult ClientRequestHandle="XYZ" RcvTime="2026-11-18T09:39:26.922892008Z"
+                     ReplyTime="2026-11-18T09:39:26.923519079Z"
+                     RevisedLocaleID="en-us"
+                     ServerState="running"/>
+         <RItemList>
+            <Items ClientItemHandle="1" ItemName="A.parameters.Stirrer.CurValue" ItemPath=""
+                   Timestamp="2026-11-18T09:39:26.069107425Z">
+               <Value xsi:type="xsd:double">100.79488372802734375</Value>
+               <Quality LimitField="none" QualityField="good" VendorField="0"/>
+            </Items>
+            <Items ClientItemHandle="2" ItemName="A.parameters.Stirrer.Setpoint" ItemPath=""
+                   Timestamp="2026-11-18T09:37:19.815395569Z">
+               <Value xsi:type="xsd:double">100</Value>
+               <Quality LimitField="none" QualityField="good" VendorField="0"/>
+            </Items>
+         </RItemList>
+      </n2:ReadResponse>
+   </n1:Body>
+</n1:Envelope>

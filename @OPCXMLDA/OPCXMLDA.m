@@ -12,6 +12,7 @@ classdef OPCXMLDA < handle & matlab.System %& matlab.mixin.SetGet%
         opctags
         opctypes
         soapaction % is dynamically assigned by initialization
+        logFile
     end
     
     properties (Access = private)   
@@ -25,10 +26,37 @@ classdef OPCXMLDA < handle & matlab.System %& matlab.mixin.SetGet%
                  "xsd:unsignedInt"  "uint16";...
                  "xsd:string"       "string"]
         
+        
     end
 
     methods
-        function obj = OPCXMLDA() %Object initialization.
+        function obj = OPCXMLDA(logFile) %Object initialization.
+            
+            % CREATE LOGFILE
+            if nargin < 1
+                logFile = 'OPC_log.txt';
+            end
+
+            obj.logFile = logFile;
+
+            if isfile(obj.logFile)
+                answer = questdlg( ...
+                    sprintf('Log file "%s" already exists. Overwrite?', obj.logFile), 'Existing OPC Log', 'Overwrite', 'Cancel', 'Cancel');
+
+                if ~strcmp(answer, 'Overwrite')
+                    error('OPC initialization cancelled. Existing log preserved.');
+                end
+            end
+
+            fid = fopen(obj.logFile, 'w');
+
+            if fid == -1
+                error('Cannot create log file: %s', obj.logFile);
+            end
+
+            fclose(fid);
+
+
             obj.operationID = obj.initOperationID();
             for i = 1:length(obj.operations)
                 obj.operation.(obj.operations(i)) = obj.operations(i);
@@ -313,6 +341,8 @@ classdef OPCXMLDA < handle & matlab.System %& matlab.mixin.SetGet%
             request = matlab.net.http.RequestMessage(method,header,body);
             response = request.send(uri);
             r = response.Body.Data;
+
+            obj.logSOAP(operation,soapmessage,r);
             %% Debugging
             % show(request)
             % response.Header.string
@@ -325,7 +355,7 @@ classdef OPCXMLDA < handle & matlab.System %& matlab.mixin.SetGet%
             else
                 par = arg;
             end
-            dom = obj.soapaction.(obj.operation.(operation));
+            dom = obj.soapaction.(obj.operation.(operation)).cloneNode(true);
             
             if (isempty(par))
                 r = dom;
@@ -429,6 +459,23 @@ classdef OPCXMLDA < handle & matlab.System %& matlab.mixin.SetGet%
                 struct.(obj.operations(i)) = i
             end
             r = struct;
+        end
+
+        function logSOAP(obj, operation, requestXML, responseXML)
+
+            fid = fopen(obj.logFile, 'a');
+
+            if fid == -1
+                warning('Could not open OPC log file.');
+                return
+            end
+
+            fprintf(fid, '\n[%s] %s\n', char(datetime('now')), char(operation));
+
+            fprintf(fid, 'REQUEST:\n%s\n', xmlwrite(requestXML));
+            fprintf(fid, 'RESPONSE:\n%s\n', xmlwrite(responseXML));
+
+            fclose(fid);
         end
         
         
